@@ -27,3 +27,44 @@ main {
   height: 100vh;
   width: 100vw;
 }
+
+.science {
+  .quiz {
+    background-color: white;
+    border: 3px solid rgb(156, 255, 230);
+    border-radius: 20px;
+    height: 75%;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    position: absolute;
+    width: 75%;
+
+    &--header {
+      &_text {
+        border-bottom: 3px solid rgb(156, 255, 230);
+        border-top-left-radius: 20px;
+        border-top-right-radius: 20px;
+        margin: 0;
+        padding: 50px 25px;
+      }
+    }
+    
+    &--body {
+      padding: 50px 25px;
+
+      &_question {      
+        font-size: 48px;
+        margin: 0 0 50px;
+        padding: 0;
+        text-align: center;
+      }
+      
+      &_button {      
+        background: rgba(71, 216, 216, 1);
+        border: 0;
+        padding: 25px 125px;
+      }
+    }
+  }
+}

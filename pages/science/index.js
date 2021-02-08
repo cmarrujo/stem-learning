@@ -1,11 +1,9 @@
 import axios from 'axios';
 import {useState} from 'react';
 export const getStaticProps = async (context) => {
-  let question = '';
-
-  await axios.get('http://localhost:3000/api/hello')
+  let question = await axios.get('http://localhost:3000/api/questions')
   .then(function (response) {
-    question = response.data;
+    return response.data;
   })
   .catch(function (error) {
     console.log(error);
@@ -19,11 +17,20 @@ export const getStaticProps = async (context) => {
 }
 
 const Science = (props) => {
-  const {question} = {...props};
+  const {question, answer} = {...props.question};
 
   return (
     <main className="science">
-      <h1>{question}</h1>
+      <div className="quiz">
+        <div className="quiz--header">
+          <h1 className="quiz--header_text">Science</h1>
+        </div>
+        
+        <div className="quiz--body">
+          <p className="quiz--body_question">{question}</p>
+          <button className="quiz--body_button">{answer}</button>
+        </div>
+      </div>
     </main>
   )
 }
