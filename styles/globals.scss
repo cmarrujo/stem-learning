@@ -30,10 +30,10 @@ main {
 
 .science {
   .quiz {
-    background-color: white;
-    border: 3px solid rgb(156, 255, 230);
+    background-color: rgba(71, 216, 216, 1);
+    // border: 3px solid rgb(156, 255, 230);
     border-radius: 20px;
-    height: 75%;
+    min-height: 75%;
     left: 50%;
     top: 50%;
     transform: translate(-50%, -50%);
@@ -42,7 +42,7 @@ main {
 
     &--header {
       &_text {
-        border-bottom: 3px solid rgb(156, 255, 230);
+        border-bottom: 1px solid rgb(156, 255, 230);
         border-top-left-radius: 20px;
         border-top-right-radius: 20px;
         margin: 0;
@@ -51,19 +51,46 @@ main {
     }
     
     &--body {
-      padding: 50px 25px;
+      padding: 0 250px 50px;
+      text-align: center;
+
+      &_progress {      
+        display: flex;
+        // border: thin solid red;
+        justify-content: space-evenly;
+        margin: auto;
+        width: 25%;
+
+        &-step {
+          border-bottom: thin solid rgb(156, 255, 230);
+          border-left: thin solid rgb(156, 255, 230);
+          font-size: 12px;
+          padding: 7px;
+          width: 20%;
+
+          &:last-child {
+            border-right: thin solid rgb(156, 255, 230);
+          }
+        }
+      }
 
       &_question {      
         font-size: 48px;
-        margin: 0 0 50px;
+        margin: 50px 0;
         padding: 0;
         text-align: center;
       }
       
-      &_button {      
-        background: rgba(71, 216, 216, 1);
-        border: 0;
-        padding: 25px 125px;
+      &_button {   
+        background: none;   
+        border: thin solid rgb(156, 255, 230);
+        border-radius: 5px;
+        font-size: 16px;
+        font-weight: 600;
+        letter-spacing: 2px;
+        margin: 5px;
+        padding: 30px 0;
+        width: 250px;
       }
     }
   }

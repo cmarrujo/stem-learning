@@ -1,5 +1,4 @@
 import axios from 'axios';
-import {useState} from 'react';
 export const getStaticProps = async (context) => {
   let question = await axios.get('http://localhost:3000/api/questions')
   .then(function (response) {
@@ -27,8 +26,27 @@ const Science = (props) => {
         </div>
         
         <div className="quiz--body">
+          <div className="quiz--body_progress">
+            <div className="quiz--body_progress-step">1</div>
+            <div className="quiz--body_progress-step">2</div>
+            <div className="quiz--body_progress-step">3</div>
+            <div className="quiz--body_progress-step">4</div>
+            <div className="quiz--body_progress-step">5</div>
+          </div>
+
           <p className="quiz--body_question">{question}</p>
-          <button className="quiz--body_button">{answer}</button>
+          <button className="quiz--body_button" onClick={(evt) => {
+            console.log(evt.target.innerText);
+          }}>{answer}</button>
+          <button className="quiz--body_button" onClick={(evt) => {
+            console.log(evt.target.innerText);
+          }}>{32}</button>
+          <button className="quiz--body_button" onClick={(evt) => {
+            console.log(evt.target.innerText);
+          }}>{50}</button>
+          <button className="quiz--body_button" onClick={(evt) => {
+            console.log(evt.target.innerText);
+          }}>{-20}</button>
         </div>
       </div>
     </main>

@@ -2,7 +2,7 @@
 
 export const randomQuestion = () => {
   const questions = [
-    'At what temperature are Farenheit and Celsius equal to each other',
+    'At what temperature are Farenheit and Celsius equal to each other?',
     'Which planet has the most moons?',
     'Which frozen gas forms dry ice?',
     'What type of sugar does the brain need for energy?',
