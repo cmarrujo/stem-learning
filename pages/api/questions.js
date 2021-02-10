@@ -2,7 +2,7 @@
 
 export const randomQuestion = () => {
   const questions = [
-    'At what temperature are Farenheit and Celsius equal to each other?',
+    'Farenheit and Celsius are equal to each other at?',
     'Which planet has the most moons?',
     'Which frozen gas forms dry ice?',
     'What type of sugar does the brain need for energy?',
@@ -17,9 +17,21 @@ export const randomQuestion = () => {
     'Ascepius',
   ]
 
-  const random = Math.floor(Math.random() * Math.floor(5));
+  const random = [
+    ["40", "32", "-30"],
+    ['Mars', 'Saturn', 'Neptune'],
+    ['Oxygen', 'Hydrogen', 'Helium'],
+    ['Sucrose', 'Fructose', 'Lactose'],
+    ['Zues', 'Hades', 'Ares']
+  ];
 
-  const response = {"question" : questions[random], "answer" : answers[random]};
+  const current = Math.floor(Math.random() * Math.floor(5))
+
+  const response = {
+    "question" : questions[current], 
+    "answer" : answers[current],
+    "random" : random[current]
+  };
 
   return response;
 }

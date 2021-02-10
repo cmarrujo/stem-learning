@@ -8,7 +8,7 @@ const Card = (props) => {
       <a className={styles.wrapper}>
         <div className={styles.card}
             data-icon={props.icon}>
-        <p className={styles.title}>{props.title}</p>
+          <p className={styles.title}>{props.title}</p>
         </div>
       </a>
     </Link>

@@ -1,10 +1,13 @@
 import axios from 'axios';
+import {useEffect} from 'react';
+import {useGetData, useSetData} from '../../scripts/context';
+
 export const getStaticProps = async (context) => {
   let question = await axios.get('http://localhost:3000/api/questions')
-  .then(function (response) {
+  .then((response) => {
     return response.data;
   })
-  .catch(function (error) {
+  .catch((error) => {
     console.log(error);
   });
 
@@ -16,7 +19,17 @@ export const getStaticProps = async (context) => {
 }
 
 const Science = (props) => {
-  const {question, answer} = {...props.question};
+  const {question, answer, random} = {...props.question};
+  const setData = useSetData();
+  const data = useGetData();
+
+  const checkAnswer = (choice) =>  {
+    if(choice === answer) {
+      console.log('Correct');
+    }else{
+      console.log('Wrong');
+    }
+  }
 
   return (
     <main className="science">
@@ -36,17 +49,17 @@ const Science = (props) => {
 
           <p className="quiz--body_question">{question}</p>
           <button className="quiz--body_button" onClick={(evt) => {
-            console.log(evt.target.innerText);
-          }}>{answer}</button>
+              checkAnswer(evt.target.innerText);
+            }}>{answer}</button>
           <button className="quiz--body_button" onClick={(evt) => {
-            console.log(evt.target.innerText);
-          }}>{32}</button>
+              checkAnswer(evt.target.innerText);
+            }}>{random[0]}</button>
           <button className="quiz--body_button" onClick={(evt) => {
-            console.log(evt.target.innerText);
-          }}>{50}</button>
+              checkAnswer(evt.target.innerText);
+            }}>{random[1]}</button>
           <button className="quiz--body_button" onClick={(evt) => {
-            console.log(evt.target.innerText);
-          }}>{-20}</button>
+              checkAnswer(evt.target.innerText);              
+            }}>{random[2]}</button>
         </div>
       </div>
     </main>
