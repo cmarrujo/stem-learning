@@ -2,17 +2,26 @@
 
 .wrapper {
   flex-basis: 50%;
-  margin: 10px 0;
+  margin: 5px 0;
+
+  @media (min-width: 768px) {
+    margin: 10px 0;
+  }
 
   .title {
-    font-size: 16px;
+    font-size: 14px;
     font-weight: 600;
     margin: 0;
     padding: 0;
     left: 50%;
     position: absolute;
     transform: translateX(-50%);
-    top: 25px;
+    top: 15px;
+
+    @media (min-width: 768px) {
+      font-size: 16px;
+      top: 25px;
+    }
   }
   
   .card {
@@ -22,11 +31,17 @@
     background-repeat: no-repeat;
     border-radius: 20px;
     cursor: pointer;
-    height: 250px;
-    margin: 0 10px;
+    height: 150px;
+    margin: 0 5px;
     position: relative;
     transition: all .25s ease-out;
-    width: 250px;
+    width: 140px;
+
+    @media (min-width: 768px) {
+      height: 250px;
+      margin: 0 10px;
+      width: 250px;
+    }
   
     &[aria-current='true'] {
       left: 0;

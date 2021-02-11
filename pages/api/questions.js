@@ -3,14 +3,14 @@
 export const randomQuestion = () => {
   const questions = [
     'Farenheit and Celsius are equal to each other at?',
-    'Which planet has the most moons?',
-    'Which frozen gas forms dry ice?',
+    'Which of these planets has the most moons?',
+    'Which frozen gas forms hot or dry ice?',
     'What type of sugar does the brain need for energy?',
     'Who was the ancient Greek god of medicine?',
   ]
   
   const answers = [
-    '-40',
+    '-40°',
     'Jupiter',
     'Carbon Dioxide',
     'Glucose',
@@ -18,7 +18,7 @@ export const randomQuestion = () => {
   ]
 
   const random = [
-    ["40", "32", "-30"],
+    ["40°", "32°", "-30°"],
     ['Mars', 'Saturn', 'Neptune'],
     ['Oxygen', 'Hydrogen', 'Helium'],
     ['Sucrose', 'Fructose', 'Lactose'],

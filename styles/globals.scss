@@ -44,16 +44,26 @@ main {
   .quiz {
     background-color: rgba(71, 216, 216, .5);
     border-radius: 20px;
-    min-height: 90%;
+    min-height: 95%;
     left: 50%;
     top: 50%;
     transform: translate(-50%, -50%);
     position: absolute;
     width: 90%;
 
-    @media (min-width: 768px) {
-      min-height: 75%;
-      width: 75%;
+    @media (min-width: 1024px) {
+      min-height: 90%;
+      width: 95%;
+    }
+    
+    @media (min-width: 1280px) {
+      min-height: 95%;
+      width: 95%;
+    }
+    
+    @media (min-width: 1680px) {
+      min-height: 80%;
+      width: 70%;
     }
 
     &--header {
@@ -70,8 +80,16 @@ main {
         padding: 25px 30px;
         width: 50%;
 
+        @media (min-width: 375px) {
+          padding: 35px 30px;
+        }
+
         @media (min-width: 768px) {
           font-size: 24px;
+          padding: 50px 30px;
+        }
+
+        @media (min-width: 1280px) {
           padding: 50px 30px;
         }
       }
@@ -98,7 +116,7 @@ main {
       text-align: center;
 
       @media (min-width: 768px) {
-        padding: 0 345px 50px;
+        // padding: 0 345px 50px;
       }
 
       &_progress {      
@@ -108,7 +126,11 @@ main {
         width: 50%;
 
         @media (min-width: 768px) {
-          width: 25%;
+          width: 30%;
+        }
+        
+        @media (min-width: 1680px) {
+          width: 20%;
         }
 
         &-step {
@@ -117,6 +139,20 @@ main {
           font-size: 12px;
           padding: 7px;
           width: 20%;
+
+          @media (min-width: 768px) {
+            padding: 10px;
+          }
+          
+          @media (min-width: 1280px) {
+            font-size: 14px;
+            padding: 15px;
+          }
+
+          @media (min-width: 1680px) {
+            font-size: 12px;
+            padding: 10px;
+          }
 
           &[aria-current='true'] {
             background-color: rgba(255, 255, 255, .5);
@@ -129,17 +165,44 @@ main {
       }
 
       &_question {      
-        font-size: 20px;
+        font-size: 21px;
+        line-height: 1.5;
         margin: 0;
-        padding: 35px 25px;
+        padding: 30px 20px;
         text-align: center;
-        min-height: 120px;
+        min-height: 100px;
         // border: thin solid red;
+
+        @media (min-width: 375px) {
+          font-size: 28px;
+          padding: 30px 25px;
+        }
 
         @media (min-width: 768px) {
           font-size: 48px;
-          margin: 75px 0 50px;
+          margin: 50px 0;
+          padding: 30px 35px;
           min-height: 120px;
+        }
+
+        @media (min-width: 1024px) {
+          margin: 20px 0;
+          padding: 30px 175px;
+        }
+
+        @media (min-width: 1280px) {
+          padding: 40px 280px;
+          font-size: 55px;
+        }
+        
+        @media (min-width: 1440px) {
+          font-size: 60px;
+          padding: 40px 330px;
+        }
+
+        @media (min-width: 1680px) {
+          font-size: 48px;
+          padding: 40px 300px;
         }
       }
       
@@ -152,16 +215,40 @@ main {
         font-weight: 600;
         letter-spacing: 2px;
         margin: 5px;
-        padding: 15px 0;
+        padding: 20px 0;
         transition: all .25s ease-out;
-        width: 250px;
+        width: 200px;
 
         &:hover {
           background-color: rgba(255, 255, 255, .5);
         }
 
+        @media (min-width: 320px) {
+          width: 250px;
+        }
+
         @media (min-width: 768px) {
           padding: 30px 0;
+        }
+        
+        @media (min-width: 1024px) {
+          padding: 35px 0;
+          width: 350px;
+        }
+        
+        @media (min-width: 1280px) {
+          font-size: 20px;
+          padding: 40px 0;
+          width: 450px;
+        }
+        
+        @media (min-width: 1440px) {          
+          padding: 40px 0;
+        }
+
+        @media (min-width: 1680px) {
+          padding: 30px 0;
+          width: 400px;
         }
       }
     }
