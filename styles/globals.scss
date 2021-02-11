@@ -2,7 +2,6 @@ $base: rgb(214, 237, 255);
 
 html,
 body {
-  background-color: $base;
   padding: 0;
   margin: 0;
   font-family: Helvetica Neue, sans-serif;
@@ -26,40 +25,91 @@ main {
   transform: translate(-50%, -50%);
   height: 100vh;
   width: 100vw;
+
+  @media (min-width: 768px) {
+    padding-top: 50px;
+  }
+  
+  @media (min-width: 1024px) {
+    padding-top: 0;
+  }
+
+  @media (min-width: 1024px)
+  and (min-height: 1366px) {
+    padding-top: 75px;
+  }
 }
 
 .science {
   .quiz {
     background-color: rgba(71, 216, 216, .5);
-    // border: 3px solid rgb(156, 255, 230);
     border-radius: 20px;
-    min-height: 75%;
+    min-height: 90%;
     left: 50%;
     top: 50%;
     transform: translate(-50%, -50%);
     position: absolute;
-    width: 75%;
+    width: 90%;
+
+    @media (min-width: 768px) {
+      min-height: 75%;
+      width: 75%;
+    }
 
     &--header {
-      &_text {
-        border-bottom: 1px solid rgb(0, 0, 0);
-        border-top-left-radius: 20px;
-        border-top-right-radius: 20px;
+      border-bottom: 1px solid rgb(0, 0, 0);
+      border-top-left-radius: 20px;
+      border-top-right-radius: 20px;
+      display: flex;
+      width: 100%;
+
+      &_text,
+      &_score {
+        font-size: 16px;
         margin: 0;
-        padding: 50px 30px;
+        padding: 25px 30px;
+        width: 50%;
+
+        @media (min-width: 768px) {
+          font-size: 24px;
+          padding: 50px 30px;
+        }
+      }
+
+      &_text {
+        text-align: left;
+
+        @media (min-width: 768px) {
+          width: 75%;
+        }
+      }
+      
+      &_score {
+        text-align: right;
+
+        @media (min-width: 768px) {
+          width: 25%;
+        }
       }
     }
     
     &--body {
-      padding: 0 350px 50px;
+      padding: 0;
       text-align: center;
+
+      @media (min-width: 768px) {
+        padding: 0 345px 50px;
+      }
 
       &_progress {      
         display: flex;
-        // border: thin solid red;
         justify-content: space-evenly;
         margin: auto;
-        width: 25%;
+        width: 50%;
+
+        @media (min-width: 768px) {
+          width: 25%;
+        }
 
         &-step {
           border-bottom: thin solid rgb(0, 0, 0);
@@ -68,6 +118,10 @@ main {
           padding: 7px;
           width: 20%;
 
+          &[aria-current='true'] {
+            background-color: rgba(255, 255, 255, .5);
+          }
+
           &:last-child {
             border-right: thin solid rgb(0, 0, 0);
           }
@@ -75,24 +129,40 @@ main {
       }
 
       &_question {      
-        font-size: 48px;
-        margin: 75px 0 50px;
-        padding: 0;
+        font-size: 20px;
+        margin: 0;
+        padding: 35px 25px;
         text-align: center;
-        // border: thin solid red;
         min-height: 120px;
+        // border: thin solid red;
+
+        @media (min-width: 768px) {
+          font-size: 48px;
+          margin: 75px 0 50px;
+          min-height: 120px;
+        }
       }
       
       &_button {   
         background: none;   
         border: thin solid rgb(0, 0, 0);
         border-radius: 5px;
+        cursor: pointer;
         font-size: 16px;
         font-weight: 600;
         letter-spacing: 2px;
         margin: 5px;
-        padding: 30px 0;
+        padding: 15px 0;
+        transition: all .25s ease-out;
         width: 250px;
+
+        &:hover {
+          background-color: rgba(255, 255, 255, .5);
+        }
+
+        @media (min-width: 768px) {
+          padding: 30px 0;
+        }
       }
     }
   }

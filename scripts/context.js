@@ -19,7 +19,8 @@ export const useGetData = () => {
 export const useSetData = () => {
   const {setData} = useContext(QuizContext);
   return (evt) => {
-    setData(evt.target.innerText);
+    // setData(evt.target.innerText);
+    setData((prev) => ([prev + evt]));
   };
 }
 

@@ -31,16 +31,21 @@ const Science = (props) => {
     }
   }
 
+  useEffect(async () => {
+    
+  }, [data])
+
   return (
     <main className="science">
       <div className="quiz">
         <div className="quiz--header">
           <h1 className="quiz--header_text">Science</h1>
+          <h2 className="quiz--header_score">Score: 0</h2>
         </div>
         
         <div className="quiz--body">
           <div className="quiz--body_progress">
-            <div className="quiz--body_progress-step">1</div>
+            <div className="quiz--body_progress-step" aria-current="true">1</div>
             <div className="quiz--body_progress-step">2</div>
             <div className="quiz--body_progress-step">3</div>
             <div className="quiz--body_progress-step">4</div>
