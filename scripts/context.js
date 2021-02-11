@@ -2,25 +2,24 @@ import React, {createContext, useState, useContext} from 'react';
 export const QuizContext = createContext();
 
 const QuizContextProvider = (props) => {
-  const [data, setData] = useState();
+  const [score, setScore] = useState(0);
 
   return (
-    <QuizContext.Provider value={{data, setData}}>
+    <QuizContext.Provider value={{score, setScore}}>
       {props.children}
     </QuizContext.Provider>
   );
 }
 
-export const useGetData = () => {
-  const data = useContext(QuizContext);
-  return data;
+export const useGetScore = () => {
+  const score = useContext(QuizContext);
+  return score;
 }
 
-export const useSetData = () => {
-  const {setData} = useContext(QuizContext);
+export const useSetScore = () => {
+  const {setScore} = useContext(QuizContext);
   return (evt) => {
-    // setData(evt.target.innerText);
-    setData((prev) => ([prev + evt]));
+    setScore(prev => prev += evt);
   };
 }
 

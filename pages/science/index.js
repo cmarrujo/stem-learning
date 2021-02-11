@@ -1,6 +1,6 @@
 import axios from 'axios';
-import {useEffect} from 'react';
-import {useGetData, useSetData} from '../../scripts/context';
+import {useState, useEffect} from 'react';
+import {useGetScore, useSetScore} from '../../scripts/context';
 
 export const getStaticProps = async (context) => {
   let question = await axios.get('http://localhost:3000/api/questions')
@@ -19,52 +19,70 @@ export const getStaticProps = async (context) => {
 }
 
 const Science = (props) => {
-  const {question, answer, random} = {...props.question};
-  const setData = useSetData();
-  const data = useGetData();
+  const setScore = useSetScore();
+  const score = useGetScore();
+
+  const [nextQuestion, setNextQuestion] = useState('');
+  const [nextAnswer, setNextAnswer] = useState('');
+  const [nextRandom, setNextRandom] = useState('');
+  const [counter, setCounter] = useState(1);
 
   const checkAnswer = (choice) =>  {
-    if(choice === answer) {
+    // console.log('Correct', choice);
+    if(choice === nextAnswer) {
       console.log('Correct');
+      setScore(10);
+      setCounter(counter + 1);
     }else{
       console.log('Wrong');
+      setCounter(counter + 1);
     }
   }
 
   useEffect(async () => {
-    
-  }, [data])
+    let quiz = await axios.get('http://localhost:3000/api/questions')
+    .then((response) => {
+      return response.data;
+    })
+    .catch((error) => {
+      console.log(error)
+    });
+
+    setNextQuestion(quiz.question);
+    setNextAnswer(quiz.answer);
+    setNextRandom(quiz.random);
+  }, [counter, score])
 
   return (
     <main className="science">
       <div className="quiz">
         <div className="quiz--header">
           <h1 className="quiz--header_text">Science</h1>
-          <h2 className="quiz--header_score">Score: 0</h2>
+          <h2 className="quiz--header_score">Score: {score.score}</h2>
         </div>
         
         <div className="quiz--body">
           <div className="quiz--body_progress">
-            <div className="quiz--body_progress-step" aria-current="true">1</div>
-            <div className="quiz--body_progress-step">2</div>
-            <div className="quiz--body_progress-step">3</div>
-            <div className="quiz--body_progress-step">4</div>
-            <div className="quiz--body_progress-step">5</div>
+            <div className="quiz--body_progress-step" aria-current={counter === 1}>1</div>
+            <div className="quiz--body_progress-step" aria-current={counter === 2}>2</div>
+            <div className="quiz--body_progress-step" aria-current={counter === 3}>3</div>
+            <div className="quiz--body_progress-step" aria-current={counter === 4}>4</div>
+            <div className="quiz--body_progress-step" aria-current={counter === 5}>5</div>
           </div>
 
-          <p className="quiz--body_question">{question}</p>
+          <p className="quiz--body_question">{nextQuestion}</p>
           <button className="quiz--body_button" onClick={(evt) => {
               checkAnswer(evt.target.innerText);
-            }}>{answer}</button>
+            }}>{nextAnswer}</button>
           <button className="quiz--body_button" onClick={(evt) => {
               checkAnswer(evt.target.innerText);
-            }}>{random[0]}</button>
+            }}>{nextRandom[0]}</button>
           <button className="quiz--body_button" onClick={(evt) => {
               checkAnswer(evt.target.innerText);
-            }}>{random[1]}</button>
+            }}>{nextRandom[1]}</button>
           <button className="quiz--body_button" onClick={(evt) => {
               checkAnswer(evt.target.innerText);              
-            }}>{random[2]}</button>
+            }}>{nextRandom[2]}</button>
         </div>
       </div>
     </main>
