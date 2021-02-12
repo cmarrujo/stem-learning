@@ -18,7 +18,7 @@ const Quiz = (props) => {
           props.checkAnswer(evt.target.innerText);
         }
       }>
-        {props.nextRandom[0]};
+        {props.nextRandom[0]}
       </button>
 
       <button className="quiz--body_button" 
@@ -26,7 +26,7 @@ const Quiz = (props) => {
           props.checkAnswer(evt.target.innerText);
         }
       }>
-        {props.nextRandom[1]};
+        {props.nextRandom[1]}
       </button>
 
       <button className="quiz--body_button" 
@@ -34,7 +34,7 @@ const Quiz = (props) => {
           props.checkAnswer(evt.target.innerText);              
         }
       }>
-        {props.nextRandom[2]};
+        {props.nextRandom[2]}
       </button>
     </React.Fragment>
   );
