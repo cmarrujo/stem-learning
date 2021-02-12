@@ -22,15 +22,13 @@ export const randomQuestion = () => {
     ['Mars', 'Saturn', 'Neptune'],
     ['Oxygen', 'Hydrogen', 'Helium'],
     ['Sucrose', 'Fructose', 'Lactose'],
-    ['Zues', 'Hades', 'Ares']
+    ['Zeus', 'Hades', 'Ares']
   ];
 
-  const current = Math.floor(Math.random() * Math.floor(5))
-
   const response = {
-    "question" : questions[current], 
-    "answer" : answers[current],
-    "random" : random[current]
+    "question" : questions, 
+    "answer" : answers,
+    "random" : random
   };
 
   return response;
