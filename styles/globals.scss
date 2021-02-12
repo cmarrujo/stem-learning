@@ -43,26 +43,26 @@ main {
   .quiz {
     background-color: rgba(71, 216, 216, .5);
     border-radius: 20px;
-    min-height: 90%;
+    min-height: 90vh;
     left: 50%;
     top: 50%;
     transform: translate(-50%, -50%);
     position: absolute;
-    width: 90%;
+    width: 90vw;
 
     @media (min-width: 1024px) {
-      min-height: 90%;
-      width: 95%;
+      min-height: 90vh;
+      width: 95vw;
     }
     
     @media (min-width: 1280px) {
-      min-height: 95%;
-      width: 95%;
+      min-height: 95vh;
+      width: 95vw;
     }
     
     @media (min-width: 1680px) {
-      min-height: 80%;
-      width: 70%;
+      min-height: 80vh;
+      width: 70vw;
     }
 
     &--header {
@@ -113,10 +113,6 @@ main {
     &--body {
       padding: 0;
       text-align: center;
-
-      @media (min-width: 768px) {
-        // padding: 0 345px 50px;
-      }
 
       &_progress {      
         display: flex;
@@ -170,7 +166,6 @@ main {
         padding: 30px 20px;
         text-align: center;
         min-height: 100px;
-        // border: thin solid red;
 
         @media (min-width: 375px) {
           font-size: 28px;
