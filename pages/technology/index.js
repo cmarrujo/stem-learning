@@ -10,8 +10,8 @@ const Science = () => {
   const [nextAnswer, setNextAnswer] = useState('');
   const [nextRandom, setNextRandom] = useState('');
   const [counter, setCounter] = useState(0);
-  const data = useGetScore();
   const setScore = useSetScore();
+  const data = useGetScore();
   const current = counter + 1;
 
   const getFinalScore = () =>  {
@@ -44,7 +44,7 @@ const Science = () => {
   return (
     <main className="science">
       <div className="quiz">
-        <Score header={'Science'} score={data.score} />
+        <Score header='Technology' score={data.score} />
         
         <div className="quiz--body">
           <Progress current={current} />
