@@ -28,7 +28,7 @@ const Science = () => {
   }
 
   useEffect(async () => {
-    await axios.get('http://localhost:3000/api/questions')
+    await axios.get('../api/questions')
     .then((response) => {
       const {question, answer, random} = {...response.data};
       
